@@ -1,0 +1,86 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body{
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: #00ffff;
+}
+
+header h1{
+    margin: auto auto auto 10px;
+}
+
+footer{
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #00ffff;
+}
+
+footer h1{
+    margin: auto auto auto 10px;
+    display: inline;
+    margin-right: 50px;
+}
+
+.content_div{
+    margin-left: 20px;
+}
+
+.content_div div{
+    margin: 10px 0;
+}
+
+table{
+    text-align:center;
+    border-collapse: collapse;
+}
+
+table th{
+    padding: 10px 20px;
+}
+
+table td{
+    padding: 10px 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+}
+
+textarea{
+    width: 100%;
+    padding: 5px;
+}
+
+.input_div{
+    width: 220px;
+}
+
+.flash_div{
+    width: 450px;
+    border:slid 2px blue;
+}
+
+.flash{
+    display: inline-block;
+    width: 100%;
+    margin: 20px 10px;
+    background-color: #e5f1ff;
+}
+
+.error_message{
+    color: red;
+}

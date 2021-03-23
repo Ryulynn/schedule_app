@@ -1,0 +1,54 @@
+<div class="content_div">
+    <div>
+        <h1>スケジュール一覧</h1>
+    </div>
+    <div class="flash_div">
+        <% if flash.notice %>
+            <p class="flash"><%= flash.notice %></p>
+        <% end %>
+    </div>
+    <table class="index_table" border="1">
+        <thead class="index_table_thead">
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th>終日</th>
+                <th>スケジュール更新日</th>
+                <th>確認</th>
+                <th>編集</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        <tbody class="index_table_tbody">
+            <% @posts.each do |posts| %>
+                <tr>
+                    <td><%= posts.id %></td>
+                    <td><%= posts.title %></td>
+                    <td><%= posts.start_date.to_s(:custom_datetime) %></td>
+                    <td><%= posts.end_date.to_s(:custom_datetime) %></td>
+                    <td>
+                        <% if posts.all_day == "1" %>
+                            <%= p "○" %>
+                        <% else %>
+                            <%= p "" %>
+                        <% end %>
+                    </td>
+                    <td><%= posts.updated_at.to_s(:custom_datetime) %></td>
+                    <td><%= link_to "確認", "/posts/#{posts.id}" %></td>
+                    <td><%= link_to "編集", "/posts/#{posts.id}/edit" %></td>
+                    <td><%= link_to "削除", "/posts/#{posts.id}", method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div>
+        <%= link_to "スケジュールの新規作成", :new_post %>
+    </div>
+</div>
+
+<footer>
+    <h1>本日の日付：<%= p "#{Date.today.year}/#{Date.today.month}/#{Date.today.day}" %></h1> 
+    <h1>スケジュール数：<%= @count %></h1> <!-- 登録されているデータの数をカウントし、出力 -->
+</footer>
