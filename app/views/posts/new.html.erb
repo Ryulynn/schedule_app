@@ -1,0 +1,53 @@
+<div class="content_div">
+    <h1>スケジュールの新規作成</h1>
+    
+    <div class="error_message">
+    <%= render "shared/error", obj: @post %>
+    </div>
+    
+    <%= form_for @post do |f| %>
+        <table border="1">
+            <tr>
+                <th>タイトル</th>
+                <td>
+                    <%= f.text_field :title %>
+                </td>
+            </tr>
+            <tr>
+                <th>開始日</th>
+                <td>
+                    <%= f.datetime_field :start_date %>
+                </td>
+            </tr>
+            <tr>
+                <th>終了日</th>
+                <td>
+                    <%= f.datetime_field :end_date %>
+                </td>
+            </tr>
+            <tr>
+                <th>終日</th>
+                <td>
+                    <%= f.check_box :all_day, {}, "1", "0" %>
+                    終日の場合はチェックを入れてください。
+                </td>
+            </tr>
+            <tr>
+                <th>スケジュールメモ</th>
+                <td>
+                    <%= f.text_area :memo %>
+                </td>
+            </tr>
+        </table>
+        <div class="input_div">
+            <%= f.submit "スケジュールを新規登録する" %>
+        </div>
+        <dev>
+            <%= link_to "スケジュール一覧に戻る", :posts %>
+        </dev>
+    <% end %>
+</div>
+
+<footer>
+    <h1>本日の日付：<%= p "#{Date.today.year}/#{Date.today.month}/#{Date.today.day}" %></h1>
+</footer>
